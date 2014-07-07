@@ -8,7 +8,7 @@ var color = d3.scale.category20();
 var force = d3.layout.force()
       .nodes(graph.nodes) ///graph is where the data comes from
       .links(graph.links)
-      .charge(-90)
+      .charge(-300)
       .linkDistance(90)
       .size([width, height]);
 
@@ -24,7 +24,7 @@ console.log(graph.links)
 
 var update = function(){
 
-
+  force.linkDistance(150 - graph.nodes.length * 2)
 
   var node = svg.selectAll(".node")
       .data(graph.nodes)
