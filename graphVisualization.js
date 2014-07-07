@@ -12,7 +12,7 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-/*d3.json("miserables.json", function(error, graph) {
+d3.json("miserables.json", function(error, graph) {
   force
       .nodes(graph.nodes) ///graph is where the data comes from
       .links(graph.links)
@@ -44,4 +44,4 @@ var svg = d3.select("body").append("svg")
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
   });
-});*/
+});
