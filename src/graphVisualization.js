@@ -12,7 +12,12 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-d3.json("miserables.json", function(error, graph) {
+graph = new Graph()
+graph.addVertex("bob");
+graph.addVertex("mike");
+graph.addEdge("bob", "mike");
+console.log(graph.nodes)
+console.log(graph.links)
   force
       .nodes(graph.nodes) ///graph is where the data comes from
       .links(graph.links)
@@ -44,4 +49,20 @@ d3.json("miserables.json", function(error, graph) {
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
   });
-});
+
+
+
+var addVertexButton = document.getElementById('addVertex')
+
+/*addVertexButton.onkeydown = function(event) {
+    if(event.which == 13) {
+        event.preventDefault();
+          if (basicGraph === undefined){
+            basicGraph = new Graph();
+          }
+          basicGraph.addVertex("test");
+          update();
+        }
+        $(this).val("")
+    }
+});*/
