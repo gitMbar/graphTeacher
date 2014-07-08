@@ -36,7 +36,7 @@ var update = function(){
         .call(force.drag);
   nodeEnter.append("circle")
         .attr("class", "node")
-        .attr("r", 16)
+        .attr("r", 17)
         .style("stroke", "black")
         .style("fill", "lightblue")
         .call(force.drag);
