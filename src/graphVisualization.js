@@ -8,7 +8,7 @@ var color = d3.scale.category20();
 var force = d3.layout.force()
       .nodes(graph.nodes) ///graph is where the data comes from
       .links(graph.links)
-      .charge(function(d){ return (d.weight * -200)-500})
+      .charge(function(d){ return Math.max(((d.weight * -200)-500), -1500)})
       .linkDistance(90)
       .size([width, height]);
 
