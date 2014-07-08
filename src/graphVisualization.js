@@ -1,14 +1,14 @@
 graph = new Graph()
 
-var width = 960,
-    height = 500;
+var width = 1200,
+    height = 600;
 
 var color = d3.scale.category20();
 
 var force = d3.layout.force()
       .nodes(graph.nodes) ///graph is where the data comes from
       .links(graph.links)
-      .charge(-300)
+      .charge(function(d){ return (d.weight * -200)-500})
       .linkDistance(90)
       .size([width, height]);
 
@@ -36,7 +36,7 @@ var update = function(){
         .call(force.drag);
   nodeEnter.append("circle")
         .attr("class", "node")
-        .attr("r", 14)
+        .attr("r", 16)
         .style("stroke", "black")
         .style("fill", "lightblue")
         .call(force.drag);
