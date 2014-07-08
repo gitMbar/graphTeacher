@@ -24,7 +24,7 @@ console.log(graph.links)
 
 var update = function(){
 
-  force.linkDistance(160 - graph.nodes.length * 2)
+  force.linkDistance(200 - graph.nodes.length * 2)
 
   
   var node = svg.selectAll("g")
@@ -33,18 +33,18 @@ var update = function(){
   node.exit().transition().duration(100).remove()
 
   var nodeEnter = node.enter().append("g")
-        //.attr("class", "node")
         .call(force.drag);
-/*  console.log(nodeEnter)
-  console.log("node entered")*/
   nodeEnter.append("circle")
         .attr("class", "node")
-        .attr("r", 7)
-        .style("fill", function(d) { return color(d.group); })
+        .attr("r", 14)
+        .style("stroke", "black")
+        .style("fill", "lightblue")
         .call(force.drag);
 
   //text and titles
   nodeEnter.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", ".3em")
       .text(function(d) { return d.id; });
 
   //start links
